@@ -23,7 +23,7 @@ const Details = (props) => {
             <Col xs={12} md={8}>
               <Row></Row>
               <Row></Row>
-              <Image src={item.image} roundedCircle style={{height:"6vh", width:"5vw"}}/>
+              <Image src={item.image} roundedCircle style={{height:"10vh", width:"6vw"}}/>
             </Col>
             <Col xs={8} md={4}>
               <Row><p class="fw-bold">{item.name}</p></Row>
@@ -31,7 +31,7 @@ const Details = (props) => {
               
             </Col>
           </Row>
-
+            <hr/>
           <Row>
             <Col xs={6} md={6}>
               <Row > <p class="fw-light">Gender</p></Row>

@@ -8,17 +8,17 @@ const Home = () => {
     const [modalShow, setModalShow] = useState(false);
     const [item, setItem] = useState(null);
     const [page,setPage] = useState(1);
-    const [val,setVal] = useState("")
+    const [query,setQuery] = useState("")
     useEffect(() => {
-      getList(val,page);
+      getList(query,page);
     }, []);
-    
-    const getList = async (val,page) => {
+
+    const getList = async (query,page) => {
       const res = await axios.get(
-        `https://rickandmortyapi.com/api/character/?name=${val}&page=${page}`
+        `https://rickandmortyapi.com/api/character/?name=${query}&page=${page}`
       );
       console.log(res.data, res.data.results);
-      setVal(val)
+      setQuery(query)
       setList(res.data.results);
     };
 
@@ -46,7 +46,7 @@ const Home = () => {
   return (
     <>
      <Search getList={getList} />
-     
+     <hr/>
     {modalShow?<Details show={modalShow} onHide={() => setModalShow(false)} item={item}/>:null}
     <List list={list}  handleClick={handleClick}/>
     </>
