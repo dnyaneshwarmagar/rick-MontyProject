@@ -27,7 +27,7 @@ const Details = (props) => {
             </Col>
             <Col xs={8} md={4}>
               <Row><p class="fw-bold">{item.name}</p></Row>
-              <Row><p class="fw-light">{item.status}</p></Row>
+              <Row><p class="fw-light">{item.status=="Alive"?<span style={{color:"#13ec66"}}>●</span>:<span style={{color:"#757472"}}>●</span>}{item.status}</p></Row>
               
             </Col>
           </Row>
