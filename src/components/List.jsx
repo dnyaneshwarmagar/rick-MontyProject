@@ -18,7 +18,7 @@ const List = ({list,handleClick}) => {
           
 
             
-              <Card.Text style={{marginInlineStart:"20vw",width:"30vw"}}>{item.status=="Alive"?<span style={{color:"#13ec66"}}>●</span>:<span style={{color:"#f4f0eb"}}>●</span>}{item.status}{"-"}{item.species}</Card.Text>
+              <Card.Text style={{marginInlineStart:"20vw",width:"30vw"}}>{item.status=="Alive"?<span style={{color:"#13ec66"}}>●</span>:<span style={{color:"#757472"}}>●</span>}{item.status}{"-"}{item.species}</Card.Text>
 
             </Card.Body>
             {/* <Card.Img variant="bottom" src="holder.js/100px180" /> */}
