@@ -2,11 +2,12 @@ import {useState,useEffect} from 'react'
 import List from '../components/List';
 import axios from "axios"
 import Details from '../components/Details';
+import Search from '../components/Search';
 const Home = () => {
     const [list, setList] = useState([]);
     const [modalShow, setModalShow] = useState(false);
     const [item, setItem] = useState(null);
-    const [query,setQuery] = useState("")
+    
     useEffect(() => {
       getList();
     }, []);
@@ -17,6 +18,7 @@ const Home = () => {
       console.log(res.data, res.data.results);
       setList(res.data.results);
     };
+    
     const handleClick = (item)=>{
       setItem(item)
       setModalShow(true)
@@ -24,7 +26,7 @@ const Home = () => {
     useEffect(()=>{},[modalShow])
     console.log("list", list);
 
-    const search =async (val)=>{
+    const handleSearch =async (val)=>{
       const res = await axios.get(
         `https://rickandmortyapi.com/api/character/?name=${val}&page=3`
       );
@@ -34,10 +36,7 @@ const Home = () => {
 
   return (
     <>
-     <div>
-            <input type="text" placeholder="Search for a Contact" style={{width:"80vw"}} onChange={(e)=>search(e.target.value)}/>
-            
-        </div>
+     <Search handleSearch={handleSearch}/>
      
     {modalShow?<Details show={modalShow} onHide={() => setModalShow(false)} item={item}/>:null}
     <List list={list}  handleClick={handleClick}/>
