@@ -9,7 +9,7 @@ const List = ({list,handleClick}) => {
     <Container>
     
         {list?.map((item) => (
-            <Card style={{height:"10vh", margin:"3vh"}} onClick={()=>handleClick(item.id)}>
+            <Card style={{height:"10vh", margin:"3vh"}} onClick={()=>handleClick(item)} key={item.id}>
             <Card.Body style={{display:"flex",flexDirection:"row",alignItems:"center"}} >
               
                
